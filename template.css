@@ -31,27 +31,10 @@ body[theme="dracula-dark"] {
 	--drx-color-text: #F8F8F2;
 	--drx-color-subtext: #ADAFBC;
 	--drx-color-deactivate: #6C6F89;
+	--drx-color-comment: #6272A4;
 
 	--drx-color-accent: #BD93F9;
 	--drx-color-important: #D6ACFF;
-}
-
-body[theme="dracula-light"] {
-    --drx-color-base: #dce0e8;
-    --drx-color-surface: #e6e9ef;
-    --drx-color-overlay: #eff1f5;
-    --drx-color-highlight: #fcfcfd;
-
-    --drx-color-text: #4C4F69;
-    --drx-color-subtext: #5C5F77;
-    --drx-color-deactivate: #ACB0BE;
-
-    --drx-color-accent: #EA76CB;
-	--drx-color-important: #EE95D7;
-}
-
-.colorscheme {
-	--drx-color-comment: #6272A4;
 
 	--drx-color-red-1: #FF6E6E;
 	--drx-color-red-2: #FF5555;
@@ -77,6 +60,46 @@ body[theme="dracula-light"] {
 	--drx-color-pink-1: #FF92DF;
 	--drx-color-pink-2: #FF79C6;
 	--drx-color-pink-3: #E660AD;
+}
+
+body[theme="dracula-light"] {
+    --drx-color-base: #dce0e8;
+    --drx-color-surface: #e6e9ef;
+    --drx-color-overlay: #eff1f5;
+    --drx-color-highlight: #fcfcfd;
+
+    --drx-color-text: #4C4F69;
+    --drx-color-subtext: #5C5F77;
+    --drx-color-deactivate: #ACB0BE;
+	--drx-color-comment: #6272A4;
+
+    --drx-color-accent: #EA76CB;
+	--drx-color-important: #EE95D7;
+
+	--drx-color-red-1: #f2cdcd;
+	--drx-color-red-2: #d20f39;
+	--drx-color-red-3: #a30c2b;
+	--drx-color-orange-1: #f5d3ae;
+	--drx-color-orange-2: #e64553;
+	--drx-color-orange-3: #b33a42;
+	--drx-color-yellow-1: #f9e2af;
+	--drx-color-yellow-2: #df8e1d;
+	--drx-color-yellow-3: #b37417;
+	--drx-color-green-1: #d9e0d0;
+	--drx-color-green-2: #40a02b;
+	--drx-color-green-3: #2e7a20;
+	--drx-color-cyan-1: #cdd6f4;
+	--drx-color-cyan-2: #04a5e5;
+	--drx-color-cyan-3: #0378b3;
+	--drx-color-blue-1: #cddbf9;
+	--drx-color-blue-2: #1e66f5;
+	--drx-color-blue-3: #174db3;
+	--drx-color-purple-1: #e8def8;
+	--drx-color-purple-2: #8839ef;
+	--drx-color-purple-3: #662db3;
+	--drx-color-pink-1: #f5c2e7;
+	--drx-color-pink-2: #ea76cb;
+	--drx-color-pink-3: #b35a9d;
 }
 
 .ui-values {
