@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name             Dracula for Gemini
 @namespace        github.com/druxorey/dracula-for-stylus
-@version          1.1.0
+@version          1.1.1
 @description      Are you tired of the same boring colors on Gemini? Then try this modern color style based on the Dracula theme
 @author           Druxorey
 @license          GNU General Public License v3.0
@@ -130,7 +130,7 @@
 		background: var(--drx-color-surface) !important;
 	}
 
-    :root .light-theme {
+	:root .light-theme {
 		--drx-color-base: #dce0e8;
 		--drx-color-surface: #e6e9ef;
 		--drx-color-overlay: #eff1f5;
@@ -189,7 +189,15 @@
 		--gem-sys-color--on-surface: var(--drx-color-text);
 		--gem-sys-color--on-surface-variant: var(--drx-color-subtext);
 		--mat-menu-container-color: var(--drx-color-base);
+		--mat-button-toggle-selected-state-text-color: var(--drx-color-text);
 		--bard-color-new-conversation-button: var(--drx-color-overlay);
+		
+	}
+	
+	.monaco-editor {
+		--vscode-editor-background: var(--drx-color-base);
+		--vscode-editorGutter-background: var(--drx-color-base);
+		--vscode-editor-foreground: red !important;
 	}
 	
 	.buttons-container.adv-upsell.ng-star-inserted {
@@ -198,11 +206,22 @@
 	
 	.text-input-field {
 		background: var(--drx-color-base);
-        box-shadow: none !important;
+		box-shadow: none !important;
+		border-radius: 2rem;
 	}
 
-    [_nghost-ng-c1953245574]:where(.input-box-shadow) {
-        box-shadow: none;
-        border: none;
-    }
+	[_nghost-ng-c1953245574]:where(.input-box-shadow) {
+		box-shadow: none;
+		border: none;
+	}
+	
+	/* Remove Gradient Overlay on Input Box */
+	.zero-state-theme .center-input-layout .input-gradient[_nghost-ng-c3224216801]:before {
+		display:none;
+	}
+	
+	/* Disable Gemini Advanced Pop Up */
+	.center-input-layout [_nghost-ng-c996162376] .modular-zero-state-container[_ngcontent-ng-c996162376] .bottom-section-container[_ngcontent-ng-c996162376] {
+		display:none;
+	}
 }
