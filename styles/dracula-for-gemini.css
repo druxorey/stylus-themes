@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name             Dracula for Gemini
 @namespace        github.com/druxorey/dracula-for-stylus
-@version          1.1.1
+@version          1.1.2
 @description      Are you tired of the same boring colors on Gemini? Then try this modern color style based on the Dracula theme
 @author           Druxorey
 @license          GNU General Public License v3.0
@@ -191,13 +191,14 @@
 		--mat-menu-container-color: var(--drx-color-base);
 		--mat-button-toggle-selected-state-text-color: var(--drx-color-text);
 		--bard-color-new-conversation-button: var(--drx-color-overlay);
+        --gem-sys-color--surface-container-lowest: var(--drx-color-overlay);
+        --bard-color-surface-dim-tmp: var(--drx-color-surface) !important;
 		
 	}
 	
 	.monaco-editor {
 		--vscode-editor-background: var(--drx-color-base);
 		--vscode-editorGutter-background: var(--drx-color-base);
-		--vscode-editor-foreground: red !important;
 	}
 	
 	.buttons-container.adv-upsell.ng-star-inserted {
@@ -215,11 +216,10 @@
 		border: none;
 	}
 	
-	/* Remove Gradient Overlay on Input Box */
-	.zero-state-theme .center-input-layout .input-gradient[_nghost-ng-c3224216801]:before {
-		display:none;
-	}
-	
+    .mat-ripple.card.card-zero-state:hover {
+        background: var(--drx-color-highlight);
+    }
+
 	/* Disable Gemini Advanced Pop Up */
 	.center-input-layout [_nghost-ng-c996162376] .modular-zero-state-container[_ngcontent-ng-c996162376] .bottom-section-container[_ngcontent-ng-c996162376] {
 		display:none;
