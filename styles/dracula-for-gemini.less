@@ -1,0 +1,95 @@
+/* ==UserStyle==
+@name             Dracula for Gemini
+@namespace        github.com/druxorey/dracula-for-stylus
+@version          2.0.0
+@description      Are you tired of the same boring colors on Gemini? Then try this modern color style based on the Dracula theme
+@author           Druxorey
+@license          GNU General Public License v3.0
+@preprocessor     less
+
+@var select accentColor "Accent Color" {
+	"Red": "drx-color-red",
+	"Orange": "drx-color-orange",
+	"Yellow": "drx-color-yellow",
+	"Green": "drx-color-green",
+	"Cyan": "drx-color-cyan",
+	"Blue": "drx-color-blue",
+	"Purple": "drx-color-purple",
+	"Pink": "drx-color-pink"
+}
+
+@var checkbox geminiAdvanced "Disable Gemini Advance Pop Up" 0
+==/UserStyle== */
+@-moz-document url-prefix("https://gemini.google.com") {
+	@import "https://raw.githubusercontent.com/druxorey/dracula-for-stylus/refs/heads/main/lib.less";
+
+	:root .dark-theme {
+		#draculaTheme(dracula);
+	}
+
+	:root .light-theme {
+		#draculaTheme(alucard);
+	}
+	
+	#draculaTheme(@themeName) {
+		#draculaLib.setPalette();
+		
+		--lumi-sys-color--surface: @drx-color-surface;
+		--lumi-sys-color--surface-bright: @drx-color-base;
+		--lumi-sys-color--surface-dim: @drx-color-base;
+		--gem-sys-color--surface-bright: @drx-color-overlay;
+		--gem-sys-color--on-surface: @drx-color-text;
+		--gem-sys-color--surface-container: @drx-color-accent-2;
+		--gem-sys-color--on-secondary-container: @drx-color-base;
+		--gem-sys-color--secondary-container: @drx-color-accent-2;
+		--bard-color-lm-on-surface-variant: @drx-color-deactivate;
+		--bard-color-lm-on-surface-low: @drx-color-highlight;
+		
+		--lumi-sys-color--code-background: @drx-color-base;
+		--lumi-sys-color--code-blue-text: @drx-color-cyan-2;
+		--lumi-sys-color--code-green-text: @drx-color-green-2;
+		--lumi-sys-color--code-grey-text: @drx-color-comment;
+		--lumi-sys-color--code-pink-text: @drx-color-pink-2;
+		--lumi-sys-color--code-primary-text: @drx-color-text;
+		--lumi-sys-color--code-purple-text: @drx-color-purple-2;
+		--lumi-sys-color--code-red-text: @drx-color-red-2;
+		--lumi-sys-color--code-yellow-text: @drx-color-yellow-2;
+		
+		--lumi-sys-color-acc-color--accent: @drx-color-accent-2;
+		--lumi-sys-color-acc-color--accent-container: @drx-color-accent-2;
+		
+		& .monaco-editor {
+			--vscode-editor-background: @drx-color-base;
+			--vscode-editorGutter-background: @drx-color-base;
+		}
+		
+		.mtk1 { color: @drx-color-text; }
+		.mtk3 { color: @drx-color-purple-2; }
+		.mtk4 { color: @drx-color-yellow-2; }
+		.mtk5 { color: @drx-color-comment; }
+		.mtk6 { color: @drx-color-pink-2; }
+	}
+
+	.buttons-container.adv-upsell.ng-star-inserted {
+		display: if(@geminiAdvanced =1, none, block);
+	}
+
+	[_nghost-ng-c1953245574]:where(.input-box-shadow) {
+		box-shadow: none;
+		border: none;
+	}
+
+	.mat-ripple.card.card-zero-state:hover {
+		background: var(--drx-color-highlight);
+	}
+
+	// Disable Gemini Advanced Pop Up
+	.center-input-layout [_nghost-ng-c996162376] .modular-zero-state-container[_ngcontent-ng-c996162376] .bottom-section-container[_ngcontent-ng-c996162376] {
+		display: none;
+	}
+
+	// Disable Initial Glow
+	.show-lm-background[_nghost-ng-c4096728834]:before {
+		display: none;
+	}
+}
