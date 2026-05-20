@@ -1,0 +1,176 @@
+@draculaThemes: {
+@dracula: {
+	@drx-color-base: #191A21;
+	@drx-color-surface: #21222C;
+	@drx-color-overlay: #343746;
+	@drx-color-highlight: #44475A;
+
+	@drx-color-text: #F8F8F2;
+	@drx-color-subtext: #BABCC9;
+	@drx-color-deactivate: #707487;
+
+	@drx-color-comment: #6272A4;
+	@drx-color-important: #ED9EFF;
+
+	@drx-color-red-1: #FF6E6E;
+	@drx-color-red-2: #FF5555;
+	@drx-color-red-3: #E63C3C;
+	@drx-color-orange-1: #FFD185;
+	@drx-color-orange-2: #FFB86C;
+	@drx-color-orange-3: #E69F53;
+	@drx-color-yellow-1: #FFFFA5;
+	@drx-color-yellow-2: #F1FA8C;
+	@drx-color-yellow-3: #D8E173;
+	@drx-color-green-1: #69FF94;
+	@drx-color-green-2: #50FA7B;
+	@drx-color-green-3: #37EB62;
+	@drx-color-cyan-1: #A4FFFF;
+	@drx-color-cyan-2: #8BE9FD;
+	@drx-color-cyan-3: #72D0E4;
+	@drx-color-blue-1: #6DCCFF;
+	@drx-color-blue-2: #54B3FF;
+	@drx-color-blue-3: #3B9AE6;
+	@drx-color-purple-1: #D6ACFF;
+	@drx-color-purple-2: #BD93F9;
+	@drx-color-purple-3: #A47AE0;
+	@drx-color-pink-1: #FF92DF;
+	@drx-color-pink-2: #FF79C6;
+	@drx-color-pink-3: #E660AD;
+};
+
+@alucard: {
+	@drx-color-base: #FFFBEB;
+	@drx-color-surface: #EDE9DA;
+	@drx-color-overlay: #DEDBCC;
+	@drx-color-highlight: #CECCC0;
+
+	@drx-color-text: #1F1F1F;
+	@drx-color-subtext: #6C664B;
+	@drx-color-deactivate: #BCBAB3;
+
+	@drx-color-comment: #6C664B;
+	@drx-color-important: #E1776B;
+
+	@drx-color-red-1: #D74C3D;
+	@drx-color-red-2: #CB3A2A;
+	@drx-color-red-3: #9B2D21;
+	@drx-color-orange-1: #D16319;
+	@drx-color-orange-2: #AF3A03;
+	@drx-color-orange-3: #8C2E02;
+	@drx-color-yellow-1: #9E841A;
+	@drx-color-yellow-2: #846E15;
+	@drx-color-yellow-3: #6A5811;
+	@drx-color-green-1: #198D0C;
+	@drx-color-green-2: #14710A;
+	@drx-color-green-3: #105908;
+	@drx-color-cyan-1: #2AA198;
+	@drx-color-cyan-2: #179299;
+	@drx-color-cyan-3: #12747A;
+	@drx-color-blue-1: #047FB4;
+	@drx-color-blue-2: #036A96;
+	@drx-color-blue-3: #025578;
+	@drx-color-purple-1: #7862D0;
+	@drx-color-purple-2: #644AC9;
+	@drx-color-purple-3: #4F3AA1;
+	@drx-color-pink-1: #BF185A;
+	@drx-color-pink-2: #A3144D;
+	@drx-color-pink-3: #82103E;
+};
+};
+
+#draculaLib {
+.setPalette() {
+	@drx-color-base: @draculaThemes[@@themeName][@drx-color-base];
+	@drx-color-surface: @draculaThemes[@@themeName][@drx-color-surface];
+	@drx-color-overlay: @draculaThemes[@@themeName][@drx-color-overlay];
+	@drx-color-highlight: @draculaThemes[@@themeName][@drx-color-highlight];
+	
+	@drx-color-text: @draculaThemes[@@themeName][@drx-color-text];
+	@drx-color-subtext: @draculaThemes[@@themeName][@drx-color-subtext];
+	@drx-color-deactivate: @draculaThemes[@@themeName][@drx-color-deactivate];
+	
+	@drx-color-comment: @draculaThemes[@@themeName][@drx-color-comment];
+	@drx-color-important: @draculaThemes[@@themeName][@drx-color-important];
+
+	@drx-color-red-1: @draculaThemes[@@themeName][@drx-color-red-1];
+	@drx-color-red-2: @draculaThemes[@@themeName][@drx-color-red-2];
+	@drx-color-red-3: @draculaThemes[@@themeName][@drx-color-red-3];
+	
+	@drx-color-orange-1: @draculaThemes[@@themeName][@drx-color-orange-1];
+	@drx-color-orange-2: @draculaThemes[@@themeName][@drx-color-orange-2];
+	@drx-color-orange-3: @draculaThemes[@@themeName][@drx-color-orange-3];
+	
+	@drx-color-yellow-1: @draculaThemes[@@themeName][@drx-color-yellow-1];
+	@drx-color-yellow-2: @draculaThemes[@@themeName][@drx-color-yellow-2];
+	@drx-color-yellow-3: @draculaThemes[@@themeName][@drx-color-yellow-3];
+	
+	@drx-color-green-1: @draculaThemes[@@themeName][@drx-color-green-1];
+	@drx-color-green-2: @draculaThemes[@@themeName][@drx-color-green-2];
+	@drx-color-green-3: @draculaThemes[@@themeName][@drx-color-green-3];
+	
+	@drx-color-cyan-1: @draculaThemes[@@themeName][@drx-color-cyan-1];
+	@drx-color-cyan-2: @draculaThemes[@@themeName][@drx-color-cyan-2];
+	@drx-color-cyan-3: @draculaThemes[@@themeName][@drx-color-cyan-3];
+	
+	@drx-color-blue-1: @draculaThemes[@@themeName][@drx-color-blue-1];
+	@drx-color-blue-2: @draculaThemes[@@themeName][@drx-color-blue-2];
+	@drx-color-blue-3: @draculaThemes[@@themeName][@drx-color-blue-3];
+	
+	@drx-color-purple-1: @draculaThemes[@@themeName][@drx-color-purple-1];
+	@drx-color-purple-2: @draculaThemes[@@themeName][@drx-color-purple-2];
+	@drx-color-purple-3: @draculaThemes[@@themeName][@drx-color-purple-3];
+	
+	@drx-color-pink-1: @draculaThemes[@@themeName][@drx-color-pink-1];
+	@drx-color-pink-2: @draculaThemes[@@themeName][@drx-color-pink-2];
+	@drx-color-pink-3: @draculaThemes[@@themeName][@drx-color-pink-3];
+
+	@accentOne: ~"@{accentColor}-1";
+	@accentTwo: ~"@{accentColor}-2";
+	@accentThree: ~"@{accentColor}-3";
+
+	@drx-color-accent-1: @draculaThemes[@@themeName][@@accentOne];
+	@drx-color-accent-2: @draculaThemes[@@themeName][@@accentTwo];
+	@drx-color-accent-3: @draculaThemes[@@themeName][@@accentThree];
+}
+
+.cssVariables() {
+	--drx-color-base: @drx-color-base;
+	--drx-color-surface: @drx-color-surface;
+	--drx-color-overlay: @drx-color-overlay;
+	--drx-color-highlight: @drx-color-highlight;
+	--drx-color-text: @drx-color-text;
+	--drx-color-subtext: @drx-color-subtext;
+	--drx-color-deactivate: @drx-color-deactivate;
+	--drx-color-comment: @drx-color-comment;
+	--drx-color-important: @drx-color-important;
+
+	--drx-color-accent-1: @drx-color-accent-1;
+	--drx-color-accent-2: @drx-color-accent-2;
+	--drx-color-accent-3: @drx-color-accent-3;
+
+	--drx-color-red-1: @drx-color-red-1;
+	--drx-color-red-2: @drx-color-red-2;
+	--drx-color-red-3: @drx-color-red-3;
+	--drx-color-orange-1: @drx-color-orange-1;
+	--drx-color-orange-2: @drx-color-orange-2;
+	--drx-color-orange-3: @drx-color-orange-3;
+	--drx-color-yellow-1: @drx-color-yellow-1;
+	--drx-color-yellow-2: @drx-color-yellow-2;
+	--drx-color-yellow-3: @drx-color-yellow-3;
+	--drx-color-green-1: @drx-color-green-1;
+	--drx-color-green-2: @drx-color-green-2;
+	--drx-color-green-3: @drx-color-green-3;
+	--drx-color-cyan-1: @drx-color-cyan-1;
+	--drx-color-cyan-2: @drx-color-cyan-2;
+	--drx-color-cyan-3: @drx-color-cyan-3;
+	--drx-color-blue-1: @drx-color-blue-1;
+	--drx-color-blue-2: @drx-color-blue-2;
+	--drx-color-blue-3: @drx-color-blue-3;
+	--drx-color-purple-1: @drx-color-purple-1;
+	--drx-color-purple-2: @drx-color-purple-2;
+	--drx-color-purple-3: @drx-color-purple-3;
+	--drx-color-pink-1: @drx-color-pink-1;
+	--drx-color-pink-2: @drx-color-pink-2;
+	--drx-color-pink-3: @drx-color-pink-3;
+}
+}
