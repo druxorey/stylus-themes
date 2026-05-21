@@ -1,0 +1,156 @@
+/* ==UserStyle==
+@name             Dracula for Brave
+@namespace        github.com/druxorey/dracula-for-stylus
+@version          2.0.0
+@description      Are you tired of the same boring colors on Brave? Then try this modern color style based on the Dracula theme
+@author           Druxorey
+@license          GNU General Public License v3.0
+@preprocessor     less
+
+@var select accentColor "Accent Color" {
+	"Red":    "drx-color-red",
+	"Orange": "drx-color-orange",
+	"Yellow": "drx-color-yellow",
+	"Green":  "drx-color-green",
+	"Cyan":   "drx-color-cyan",
+	"Blue":   "drx-color-blue",
+	"Purple": "drx-color-purple",
+	"Pink":   "drx-color-pink"
+}
+==/UserStyle== */
+
+@-moz-document domain("search.brave.com") {
+	@import "https://raw.githubusercontent.com/druxorey/dracula-for-stylus/refs/heads/main/lib.less";
+
+	:root.dark {
+		#draculaTheme(dracula);
+	}
+
+	:root:not(.dark) {
+		#draculaTheme(alucard);
+	}
+
+	#draculaTheme(@themeName) {
+		#draculaLib.setPalette();
+
+		& { background: @drx-color-base !important; }
+
+		body {
+			--color-page-background: @drx-color-base;
+			--color-serp-bar-bg: @drx-color-surface;
+			--color-serp-breadcrumbs: @drx-color-surface;
+			--color-serp-container-: @drx-color-surface;
+			--color-serp-container-interactive: @drx-color-overlay;
+			--color-serp-divider-subtle-container: @drx-color-overlay;
+			--color-serp-header-background: @drx-color-surface;
+			--color-serp-highlight-background: @drx-color-overlay;
+			--color-serp-settings-background: @drx-color-surface;
+			--color-serp-snippet-background: @drx-color-base;
+			--color-container-highlight: @drx-color-overlay;
+			--color-search-background-container-interactive: @drx-color-highlight;
+			--color-search-button-pale-background-normal: @drx-color-overlay;
+			--color-search-button-pale-background-hover: @drx-color-highlight;
+            --color-search-background-enrichment-cards: @drx-color-overlay;
+            --color-search-background-highlight: @drx-color-highlight;
+			--color-search-links-link: @drx-color-accent-2;
+			--color-search-background-page: @drx-color-base;
+			--color-search-background-search-bar: @drx-color-overlay;
+
+			--color-text-primary: @drx-color-text;
+			--color-text-secondary: @drx-color-text;
+			--color-text-tertiary: @drx-color-subtext;
+			--color-text-interactive: @drx-color-accent-2;
+
+			--color-link-default: @drx-color-accent-2;
+			--color-link-visited: @drx-color-accent-2;
+
+			--color-icon-default: @drx-color-accent-2;
+			--color-icon-disabled: @drx-color-accent-3;
+
+			--color-tabs-search-text-default: @drx-color-accent-2;
+
+			--color-container-background: @drx-color-surface;
+			--color-divider-subtle: @drx-color-overlay;
+
+			--color-neutral-5: @drx-color-base;
+			--color-neutral-10: @drx-color-surface;
+			--color-neutral-20: @drx-color-base;
+			
+			--color-schemes-primary: @drx-color-accent-2;
+			--color-button-background: @drx-color-accent-2;
+
+			--elevation-05: 0px 8px 36px -2px @drx-color-base, 0px 1px 0px 0px var(--elevation-primary);
+			--elevation-01: 0px 1px 4px 0px @drx-color-base, 0px 1px 0px 0px var(--elevation-primary);
+            
+            --tap-color-surface: @drx-color-base;
+		}
+
+		.icon {
+			fill: @drx-color-accent-2;
+		}
+
+		.snippet.svelte-qm0fz7:hover {
+			text-shadow: 0 0 0.005rem @drx-color-text;
+		}
+
+		.llm-output, .svelte-43tr6t {
+			color: @drx-color-text;
+		}
+
+		.tab-item.active.svelte-1bd2u3s a.svelte-1bd2u3s .icon,
+		#submit-button.svelte-16mxc77 .icon {
+			fill: @drx-color-accent-2;
+		}
+
+		.tab-item.active.svelte-1bd2u3s a.svelte-1bd2u3s:after {
+			background: @drx-color-accent-2;
+		}
+
+		.llm-output {
+			--highlight-color: @drx-color-comment;
+		}
+
+		.bottom-fade.svelte-1mfp1ha {
+			background: linear-gradient(0deg, @drx-color-surface var(--offset, 1rem), rgba(23, 25, 30, 0)) !important;
+		}
+
+		.button.type--footer-prominent.svelte-19i47us.svelte-19i47us:not(:disabled):not([disabled=true]):hover,
+		.button.type--footer-prominent:not(:disabled):not([disabled=true]).active.svelte-19i47us.svelte-19i47us {
+			background: @drx-color-base;
+		}
+
+		.main-column.svelte-1f8i7g0, #infobox-snippet {
+			background-color: @drx-color-surface;
+		}
+	}
+
+	.snippet.svelte-n9nog2, 
+	.snippet.no-padding.svelte-n9nog2 {
+		padding: 1rem;
+		margin: 0.5rem 0rem;
+		border-radius: 0.75rem;
+	}
+
+	.search-elsewhere-wrapper.svelte-1jhoinl {
+		display: none;
+	}
+
+	.snippet.svelte-qm0fz7 {
+		transition: 0.25s ease;
+	}
+
+	#searchform-actions.svelte-7tdohb.svelte-7tdohb:before,
+	#searchform-actions.svelte-16mxc77.svelte-16mxc77:before {
+		background: none;
+	}
+
+	.main-column.svelte-1f8i7g0, #infobox-snippet {
+		border-radius: 16px;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+        
+        #infobox.svelte-c7jm64 {
+            border: none;
+        }
+}
