@@ -1,0 +1,249 @@
+/* ==UserStyle==
+@name             Dracula for GitHub
+@namespace        github.com/druxorey/dracula-for-stylus
+@version          2.0.0
+@description      Are you tired of the same boring colors on GitHub? Then try this modern color style based on the Dracula theme
+@author           Druxorey
+@license          GNU General Public License v3.0
+@preprocessor     less
+
+@var select accentColor "Accent Color" {
+	"Red": "drx-color-red",
+	"Orange": "drx-color-orange",
+	"Yellow": "drx-color-yellow",
+	"Green": "drx-color-green",
+	"Cyan": "drx-color-cyan",
+	"Blue": "drx-color-blue",
+	"Purple": "drx-color-purple",
+	"Pink": "drx-color-pink"
+}
+==/UserStyle== */
+
+@-moz-document domain("github.com") {
+	@import "https://raw.githubusercontent.com/druxorey/dracula-for-stylus/refs/heads/main/lib.less";
+
+	:root {
+		--drx-transition-speed: 0.25s;
+		--drx-border-radius: 10px;
+		--drx-border-width: 2px;
+		--drx-shadow-radius: 8px;
+	}
+
+	:root,
+	[data-color-mode="dark"][data-dark-theme="dark"] {
+		#draculaTheme(dracula);
+	}
+
+	[data-color-mode="light"][data-light-theme="light"],
+	[data-color-mode="light"][data-light-theme*="light"],
+	[data-color-mode="dark"][data-dark-theme*="light"] {
+		#draculaTheme(alucard);
+	}
+
+	#draculaTheme(@themeName) {
+		#draculaLib.setPalette();
+
+		--contribution-default-bgColor-0: @drx-color-base;
+		--contribution-default-bgColor-1: fade(@drx-color-accent-2, 25%) !important;
+		--contribution-default-bgColor-2: fade(@drx-color-accent-2, 50%) !important;
+		--contribution-default-bgColor-3: fade(@drx-color-accent-2, 75%) !important;
+		--contribution-default-bgColor-4: fade(@drx-color-accent-2, 100%) !important;
+
+		--buttonCounter-default-bgColor-rest: @drx-color-surface;
+		--dashboard-bgColor: @drx-color-base;
+
+		--button-danger-bgColor-rest: @drx-color-base;
+		--button-default-bgColor-rest: @drx-color-overlay;
+		--button-default-borderColor-disabled: transparent;
+		--button-default-borderColor-rest: transparent;
+		--button-default-bgColor-disabled: @drx-color-base;
+		--button-default-bgColor-hover: @drx-color-highlight;
+		--button-default-borderColor-hover: @drx-color-accent-2;
+		--button-default-bgColor-active: @drx-color-overlay;
+		--button-default-borderColor-active: @drx-color-highlight;
+		--button-default-fgColor-rest: @drx-color-text;
+		--button-primary-fgColor-disabled: @drx-color-deactivate;
+		--button-star-iconColor: @drx-color-yellow-2;
+
+		--button-primary-bgColor-rest: @drx-color-accent-2;
+		--button-primary-bgColor-hover: @drx-color-accent-1;
+		--button-primary-bgColor-active: @drx-color-accent-1;
+		--button-primary-bgColor-disabled: @drx-color-overlay;
+		--button-primary-borderColor-disabled: transparent;
+
+		--bgColor-accent-muted: @drx-color-overlay;
+		--bgColor-attention-muted: @drx-color-accent-2;
+		--bgColor-default: @drx-color-surface;
+		--bgColor-inset: @drx-color-base;
+		--bgColor-muted: @drx-color-base;
+		--bgColor-neutral-muted: @drx-color-overlay;
+		--bgColor-emphasis: @drx-color-base !important;
+		--bgColor-accent-emphasis: @drx-color-accent-2;
+
+		--overlay-bgColor: @drx-color-surface;
+
+		--fgColor-default: @drx-color-text;
+		--fgColor-onEmphasis: @drx-color-text;
+		--fgColor-disabled: @drx-color-deactivate;
+		--fgColor-muted: @drx-color-subtext;
+		--fgColor-danger: @drx-color-red-2;
+		--fgColor-attention: @drx-color-orange-2;
+		--fgColor-success: @drx-color-green-2;
+		--fgColor-accent: @drx-color-accent-2;
+		--fgColor-link: @drx-color-accent-2;
+
+		--focus-outlineColor: @drx-color-accent-2;
+
+		--border: @drx-color-overlay;
+		--borderColor-accent-emphasis: @drx-color-accent-2;
+		--borderColor-default: transparent;
+		--borderColor-muted: @drx-color-overlay;
+		--borderColor-neutral-muted: @drx-color-overlay;
+		--borderColor-danger-emphasis: @drx-color-red-2;
+		--borderColor-attention-emphasis: @drx-color-orange-2;
+		--borderColor-attention-muted: @drx-color-cyan-2;
+		--borderColor-accent-muted: transparent;
+
+		--controlKnob-bgColor-rest: @drx-color-overlay;
+		--controlKnob-borderColor-rest: transparent;
+		--controlTrack-bgColor-rest: @drx-color-base;
+		--controlTrack-bgColor-active: @drx-color-overlay;
+		--controlTrack-bgColor-hover: @drx-color-overlay;
+		--control-borderColor-rest: @drx-color-base;
+		--control-transparent-bgColor-active: @drx-color-highlight;
+		--control-transparent-bgColor-hover: @drx-color-overlay;
+		--control-transparent-bgColor-selected: @drx-color-overlay;
+
+		--drx-color-user-mention-fg: @drx-color-text;
+		--drx-color-user-mention-bg: @drx-color-cyan-2;
+		--page-header-bgColor: @drx-color-base;
+
+		--underlineNav-borderColor-active: @drx-color-accent-2;
+		--menu-bgColor-active: @drx-color-overlay;
+
+		&, body, html {
+			background-color: @drx-color-surface !important;
+		}
+
+		.prc-Button-ButtonBase-9n-Xk.styles-module__appHeaderButton__axedQ.prc-Button-IconButton-fyge7,
+		.prc-ButtonGroup-ButtonGroup-vFUrY,
+		.prc-Button-ButtonBase-9n-Xk.GlobalCreateMenu-module__actionMenuButton__Hj_iB {
+			background-color: @drx-color-overlay;
+			border-radius: var(--drx-border-radius);
+			&:hover {
+				background-color: @drx-color-highlight;
+			}
+		}
+
+		.Box-sc-g0xbh4-0.bNhwaa,
+		.feed-item-content,
+		.color-bg-subtle.rounded-1.flex-justify-between.p-3,
+		.dashboard-break-word.comment-body.markdown-body.m-0.p-3.color-bg-subtle.mb-0.rounded-1,
+		.copilotPreview,
+		.Box.mt-4,
+		.OverviewRepoFiles-module__Box_2--yIjMp {
+			background-color: @drx-color-surface !important;
+		}
+
+		.TextInput-wrapper,
+		.react-directory-row,
+		.kHyYUy,
+		.form-control,
+		.CodeBlob-module__cursorContainer__tiLPm {
+			background-color: @drx-color-base;
+		}
+
+		.prc-components-TextInputBaseWrapper-ueK9q,
+		.Button.Button--iconOnly.Button--secondary.Button--medium.AppHeader-button,
+		.AppHeader .AppHeader-button,
+		.btn-sm.btn,
+		.Box-sc-g0xbh4-0.JMXqM.prc-Button-ButtonBase-c50BI.overview-ref-selector.width-full,
+		.prc-Button-ButtonBase-c50BI.prc-Button-IconButton-szpyj,
+		.form-control.width-full,
+		.btn,
+		.Box-sc-g0xbh4-0.vcvyP.TextInput-wrapper.prc-components-TextInputWrapper-i1ofR.prc-components-TextInputBaseWrapper-ueK9q,
+		.Box.d-flex.tmp-p-3.width-full.public.source,
+		.OverviewRepoFiles-module__Box_3--Bi2jM {
+			background-color: @drx-color-overlay;
+		}
+
+		.Button.Button--iconOnly.Button--secondary.Button--medium.AppHeader-button:hover,
+		.AppHeader .AppHeader-button:hover,
+		.btn-sm.btn:hover,
+		.Box-sc-g0xbh4-0.JMXqM.prc-Button-ButtonBase-c50BI.overview-ref-selector.width-full:hover,
+		.prc-Button-ButtonBase-c50BI.prc-Button-IconButton-szpyj:hover,
+		.form-control.width-full:hover,
+		.btn:hover,
+		.Box-sc-g0xbh4-0.vcvyP.TextInput-wrapper.prc-components-TextInputWrapper-i1ofR.prc-components-TextInputBaseWrapper-ueK9q:hover,
+		.kHyYUy:hover,
+		.AppHeader-search {
+			background-color: @drx-color-highlight;
+		}
+
+		.bgColor-muted.p-1.rounded-top-2 {
+			background-color: @drx-color-overlay !important;
+		}
+
+		.markdown-body h1,
+		.markdown-body h2,
+		.markdown-body h3,
+		.markdown-body h4,
+		.markdown-body h5,
+		.markdown-body h6 {
+			border-bottom: var(--drx-border-width) solid @drx-color-overlay;
+		}
+
+		.Box-sc-g0xbh4-0.fdROMU {
+			box-shadow: @drx-color-red-2 0rem 0rem var(--drx-shadow-radius) !important;
+			border: var(--drx-border-width) solid @drx-color-pink-2 !important;
+		}
+
+		.dark-backdrop {
+			background: fade(@drx-color-highlight, 25%);
+		}
+
+		button[data-testid="checks-status-badge-icon"][data-component="IconButton"] {
+			background: @drx-color-green-2;
+			&:hover {
+				background: fade(@drx-color-green-2, 25%) !important;
+			}
+		}
+
+		svg.octicon.octicon-check {
+			fill: @drx-color-surface !important;
+		}
+	}
+
+	.TextInput-wrapper,
+	.react-directory-row,
+	.kHyYUy,
+	.UnderlineNav,
+	.color-shadow-large {
+		box-shadow: none !important;
+	}
+
+	.kHyYUy:hover,
+	.AppHeader-search,
+	.form-control,
+	.Box,
+	.AppHeader-search-kbd {
+		border: none !important;
+	}
+
+	.mt-5 { margin-top: 1.5rem !important; }
+	.p-3 { padding: 0.25rem !important; }
+	.markdown-body hr { height: var(--drx-border-width); }
+
+	.Box.mb-5.p-3.activity-overview-box.border-top.border-xl-top-0 {
+		background: transparent;
+	}
+
+	.Box.d-flex.flex-column.anim-fade-in.fast.Box-overlay--wide.overflow-x-hidden,
+	.Box.d-flex.tmp-p-3.width-full.public.source,
+	.Box.mt-4,
+	.OverviewRepoFiles-module__Box_2--yIjMp,
+	.kHyYUy:hover,
+	.AppHeader-search {
+		border-radius: var(--drx-border-radius);
+	}
+}
