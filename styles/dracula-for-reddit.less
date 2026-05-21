@@ -1,0 +1,218 @@
+/* ==UserStyle==
+@name             Dracula for Reddit
+@namespace        github.com/druxorey/dracula-for-stylus
+@version          2.0.0
+@description      Are you tired of the same boring colors on Reddit? Then try this modern color style based on the Dracula theme
+@author           Druxorey
+@license          GNU General Public License v3.0
+@preprocessor     less
+
+@var select accentColor "Accent Color" {
+	"Red":    "drx-color-red",
+	"Orange": "drx-color-orange",
+	"Yellow": "drx-color-yellow",
+	"Green":  "drx-color-green",
+	"Cyan":   "drx-color-cyan",
+	"Blue":   "drx-color-blue",
+	"Purple": "drx-color-purple",
+	"Pink":   "drx-color-pink"
+}
+==/UserStyle== */
+
+@-moz-document domain("reddit.com") {
+	@import "https://raw.githubusercontent.com/druxorey/dracula-for-stylus/refs/heads/main/lib.less";
+
+	:root:not(.theme-light) .theme-beta, 
+	:root:not(.theme-light) .theme-rpl, 
+	:root:not(.theme-light).theme-beta, 
+	:root:not(.theme-light).theme-rpl {
+		#draculaTheme(dracula);
+	}
+
+	.theme-beta,
+	.theme-light.theme-beta,
+	.theme-light.theme-rpl,
+	.theme-rpl {
+		#draculaTheme(alucard);
+	}
+
+	#draculaTheme(@themeName) {
+		#draculaLib.setPalette();
+		
+		--color-primary-onBackground: @drx-color-text !important;
+		--color-primary-onBackground-selected: @drx-color-base;
+		--color-neutral-border: @drx-color-overlay !important;
+
+		--color-neutral-content: @drx-color-text !important;
+		--color-neutral-content-disabled: @drx-color-subtext !important;
+		--color-neutral-content-weak: @drx-color-subtext !important;
+		--color-neutral-content-strong: @drx-color-text !important;
+		--color-neutral-background: @drx-color-base !important;
+		--color-neutral-background-selected: @drx-color-accent-2 !important;
+		--color-neutral-background-weak: @drx-color-surface !important;
+		--color-neutral-background-medium: @drx-color-surface !important;
+		--color-neutral-background-strong: @drx-color-surface !important;
+		--color-neutral-background-hover: @drx-color-surface !important;
+		--color-neutral-border-weak: @drx-color-overlay !important;
+		--color-neutral-border-strong: @drx-color-overlay !important;
+		--color-tone-1: @drx-color-text !important;
+		--color-tone-2: @drx-color-text !important;
+		--color-tone-3: @drx-color-overlay !important;
+		--color-tone-4: @drx-color-overlay !important;
+		--color-tone-5: @drx-color-overlay !important;
+		--color-tone-6: @drx-color-overlay !important;
+		--color-tone-7: @drx-color-overlay !important;
+		--color-primary: @drx-color-accent-2 !important;
+		--color-primary-hover: @drx-color-accent-2 !important;
+		--color-primary-background: @drx-color-blue-2 !important;
+		--color-primary-background-hover: @drx-color-accent-2 !important;
+		--color-primary-background-selected: @drx-color-accent-2 !important;
+		--color-secondary: @drx-color-text !important;
+		--color-secondary-hover: @drx-color-text;
+		--color-secondary-weak: @drx-color-subtext !important;
+		--color-secondary-background: @drx-color-surface !important;
+		--color-secondary-background-hover: @drx-color-surface !important;
+		--color-secondary-background-selected: @drx-color-highlight !important;
+		--shreddit-content-background: var(--color-neutral-background) !important;
+
+		--button-border-color: transparent;
+		--button-border-color-activated: @drx-color-overlay !important;
+		--button-color-background-activated: @drx-color-highlight !important;
+		--button-color-text-activated: @drx-color-text !important;
+		--button-color-overlay: var(--color-button-overlay-focus) !important;
+		--button-border-color-hover: @drx-color-overlay !important;
+		--button-color-background-hover: @drx-color-highlight !important;
+		--button-color-text: var(--button-color-text-hover, var(--button-color-text-default)) !important;
+
+		--color-button-secondary-text: @drx-color-text !important;
+		--color-button-secondary-text-activated: @drx-color-text !important;
+		--color-button-secondary-text-disabled: @drx-color-text !important;
+		--color-button-secondary-border: @drx-color-overlay !important;
+		--color-button-secondary-background: @drx-color-surface !important;
+		--color-button-secondary-background-focus: @drx-color-highlight !important;
+		--color-button-secondary-background-hover: @drx-color-highlight !important;
+		--color-button-secondary-background-activated: @drx-color-surface !important;
+		--color-button-secondary-background-disabled: @drx-color-surface !important;
+
+		--color-action-upvote: @drx-color-blue-2;
+		--color-action-downvote: @drx-color-red-2;
+		--color-media-background: @drx-color-surface;
+		--color-media-onbackground: @drx-color-text;
+		--color-media-onbackground-disabled: @drx-color-highlight;
+
+		--newCommunityTheme-bodyText: @drx-color-text;
+		--newCommunityTheme-metaText: @drx-color-subtext;
+		--newCommunityTheme-button: @drx-color-text;
+		--newCommunityTheme-body: @drx-color-base;
+		--newRedditTheme-actionIcon: @drx-color-text;
+		--newCommunityTheme-line: @drx-color-subtext;
+		--newRedditTheme-line: @drx-color-subtext;
+		--newRedditTheme-linkText: @drx-color-blue-2;
+		--newCommunityTheme-navIconFaded10: @drx-color-highlight;
+		--newCommunityTheme-active: @drx-color-accent-2;
+		--newCommunityTheme-field: @drx-color-base;
+		--newRedditTheme-button: @drx-color-text;
+		--newCommunityTheme-actionIcon: @drx-color-text;
+		--newCommunityTheme-bodyTextAlpha20: transparent;
+		--newRedditTheme-post: @drx-color-surface;
+		--newRedditTheme-body: @drx-color-base;
+		--newRedditTheme-field: @drx-color-base;
+		--newCommunityTheme-navIcon: @drx-color-text;
+		--newRedditTheme-actionIconAlpha50: @drx-color-text;
+		--newRedditTheme-buttonAlpha05: @drx-color-base;
+		--newRedditTheme-bodyText: @drx-color-text;
+		--newCommunityTheme-buttonAlpha50: @drx-color-text;
+		--pseudo-before-background: @drx-color-base !important;
+		--newRedditTheme-metaText: @drx-color-subtext;
+		--newRedditTheme-navIconFaded10: @drx-color-surface;
+		
+		--button-color-background-default: transparent;
+		--button-color-background-focus: transparent;
+		--button-color-background-active: linear-gradient(transparent, transparent);
+		--button-color-background-disabled: transparent;
+		--button-color-text-default: var(--color-secondary-plain);
+		--button-color-text-disabled: var(--color-interactive-content-disabled);
+		--button-color-text-hover: var(--color-secondary-plain-hover);
+		--button-border-color-default: var(--color-neutral-border-medium);
+		--button-border-color-active: var(--color-neutral-border-strong);
+		--button-border-color-disabled: @drx-color-overlay !important;
+		--button-border-width-default: @drx-color-overlay !important;
+		--button-border-width-activated: @drx-color-overlay !important;
+
+		--newCommunityTheme-postLine: @drx-color-subtext;
+		--newRedditTheme-widgetColors-sidebarWidgetBackgroundColor: @drx-color-base;
+		--newCommunityTheme-widgetColors-sidebarWidgetHeaderColor: @drx-color-base;
+		--newRedditTheme-widgetColors-sidebarWidgetBorderColor: @drx-color-overlay;
+		--post-icon-color: @drx-color-text;
+		--newCommunityTheme-postIcon: @drx-color-text;
+		--posttitletextcolor: @drx-color-text;
+		--color-upvote-background: @drx-color-accent-2;
+		--color-downvote-background: @drx-color-red-2;
+
+		color: @drx-color-text;
+
+		svg {
+			fill: @drx-color-text;
+		}
+
+		.bg-neutral-background {
+			background-color: @drx-color-surface;
+		}
+
+		.xs:rounded-\[16px\] {
+			border-color: @drx-color-overlay;
+		}
+
+		.py-md { 
+			border-color: transparent;
+		}
+
+		.flair-content {
+			color: #ffffff !important;
+		}
+
+		.text-global-brand-orangered {
+			background: fade(@drx-color-orange-2, 20%);
+		}
+
+		.text-global-brand-orangered faceplate-number {
+			color: @drx-color-orange-2;
+		}
+		
+		reddit-header-large reddit-search-large[home-revamp-enabled]:defined:not(:focus-within):before,
+		reddit-header-large reddit-search-large[show-ask-button]:defined:not(:focus-within):before {
+			background: @drx-color-overlay;
+		}
+	}
+		
+	reddit-header-large reddit-search-large[home-revamp-enabled]:defined:not(:focus-within):after,
+	reddit-header-large reddit-search-large[show-ask-button]:defined:not(:focus-within):after {
+		display: none;
+	}
+
+	.bg-neutral-background {
+		border-bottom: none;
+	}
+
+	.xs:rounded-\[16px\] {
+		border-radius: 8px;
+		border-style: solid;
+		border-width: 1px;
+	}
+
+	.py-md { 
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 8px;
+	}
+
+	.rounded-\[16px\] {
+		border-radius: 8px;
+		border: none;
+	}
+
+	.border-b-neutral-border-weak {
+		border: none;
+		height: 0.5rem;
+	}
+}
