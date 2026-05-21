@@ -1,16 +1,14 @@
+![banner](resources/banner.webp)
+<div align="center">
 
-<h1 align="center">Dracula For Stylus</h1>
+_Are you tired of the same boring colors on your websites? Then try these themes_
 
-<p align="center">Are you tired of the same boring colors on your websites? Then try these themes</p>
+[![stars](https://img.shields.io/github/stars/druxorey/dracula-for-stylus?color=8BE9FD&labelColor=191A21&style=for-the-badge)](https://github.com/druxorey/minimal-dracula-for-obsidian/stargazers)
+[![size](https://img.shields.io/github/repo-size/druxorey/dracula-for-stylus?label=Size&color=50FA7B&labelColor=191A21&style=for-the-badge)](https://github.com/druxorey/minimal-dracula-for-obsidian)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdruxorey%2Fdracula-for-stylus&label=Views&labelColor=%23191A21&countColor=%23FFB86C)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdruxorey%2Fminimal-dracula-for-obsidian)
+[![license](https://img.shields.io/github/license/druxorey/dracula-for-stylus?color=FF5555&labelColor=191A21&style=for-the-badge)](https://github.com/druxorey/minimal-dracula-for-obsidian/blob/main/LICENSE)
 
-![banner](/resources/banner.png)
-
-<p align="center">
-<a href="colorscheme-template.css"><img src="https://img.shields.io/badge/template-BD93F9?style=for-the-badge"></a>
-<a href="#styles-installation"><img src="https://img.shields.io/badge/installation-FF79C6?style=for-the-badge"></a>
-<a href="https://userstyles.world/user/druxorey"><img src="https://img.shields.io/badge/userstyles-BD93F9?style=for-the-badge"></a>
-</p>
-
+</div>
 
 This repository contains CSS files for the [Stylus](https://github.com/openstyles/stylus) browser extension that allows users to customize the appearance of websites by applying custom styles and colors using the [Dracula](https://github.com/dracula/dracula-theme) color scheme, you can find an example CSS file with default color values [here](example.css).
 
@@ -18,7 +16,7 @@ This repository contains CSS files for the [Stylus](https://github.com/openstyle
 
 1. **Download Stylus Extension**
    - Search  for "Stylus" in your browser’s extension store (e.g., Chrome Web Store or Mozilla Add-ons).
-   - Install the Stylus extension. 
+   - Install the Stylus extension.
    - Once installed, you’ll see the Stylus icon in your toolbar.
 
     If you have any questions, refer to the official Stylus documentation on GitHub [here.](https://github.com/openstyles/stylus/blob/master/README.md)
