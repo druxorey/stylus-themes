@@ -1,0 +1,81 @@
+/* ==UserStyle==
+@name             Dracula for [Web]
+@namespace        github.com/druxorey/dracula-for-stylus
+@version          1.0.0
+@description      Are you tired of the same boring colors on [Web]? Then try this modern color style based on the Dracula theme
+@author           Druxorey
+@license          GNU General Public License v3.0
+@preprocessor     less
+
+@var select themeMode "Theme Mode" {
+	"Auto (Detect)": "auto",
+	"Dracula (Dark)": "dark",
+	"Alucard (Light)": "light"
+}
+
+@var select accentColor "Accent Color" {
+	"Red": "drx-color-red",
+	"Orange": "drx-color-orange",
+	"Yellow": "drx-color-yellow",
+	"Green": "drx-color-green",
+	"Cyan": "drx-color-cyan",
+	"Blue": "drx-color-blue",
+	"Purple": "drx-color-purple",
+	"Pink": "drx-color-pink"
+}
+==/UserStyle== */
+@-moz-document domain("example.com") {
+	
+	@import "https://raw.githubusercontent.com/druxorey/dracula-for-stylus/refs/heads/main/lib.less";
+
+	// Force Dracula (Dark)
+	.apply-theme() when (@themeMode = dark) {
+		:root, body {
+			#draculaTheme(dracula);
+		}
+	}
+
+	// Force Alucard (Light)
+	.apply-theme() when (@themeMode = light) {
+		:root, body {
+			#draculaTheme(alucard);
+		}
+	}
+
+	// Automatic detection
+	.apply-theme() when (@themeMode = auto) {
+		// Detection via selectors and native web classes
+		:root[data-theme="dark"], .dark-theme, body.dark {
+			#draculaTheme(dracula);
+		}
+
+		:root[data-theme="light"], .light-theme, body.light {
+			#draculaTheme(alucard);
+		}
+
+		// Detection via system color preference (as a fallback)
+		@media (prefers-color-scheme: dark) {
+			:root {
+				#draculaTheme(dracula);
+			}
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				#draculaTheme(alucard);
+			}
+		}
+	}
+
+	.apply-theme(); // Invoke selection logic
+
+	#draculaTheme(@themeName) {
+		#draculaLib.setPalette();
+		
+		body {
+			background-color: @drx-color-base;
+			color: @drx-color-text;
+		}
+		// Add the rest of your colored styles here
+	}
+	// Place rules that do not change color here (dimensions, transitions, etc.)
+}
