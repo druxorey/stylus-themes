@@ -1,0 +1,113 @@
+/* ==UserStyle==
+@name             Dracula for WhatsApp
+@namespace        github.com/druxorey/dracula-for-stylus
+@version          2.0.0
+@description      Are you tired of the same boring colors on WhatsApp? Then try this modern color style based on the Dracula theme
+@author           Druxorey
+@license          GNU General Public License v3.0
+@preprocessor     less
+
+@var select accentColor "Accent Color" {
+	"Red":    "drx-color-red",
+	"Orange": "drx-color-orange",
+	"Yellow": "drx-color-yellow",
+	"Green":  "drx-color-green",
+	"Cyan":   "drx-color-cyan",
+	"Blue":   "drx-color-blue",
+	"Purple": "drx-color-purple",
+	"Pink":   "drx-color-pink"
+}
+==/UserStyle== */
+
+@-moz-document domain("web.whatsapp.com") {
+	@import "https://raw.githubusercontent.com/druxorey/dracula-for-stylus/refs/heads/main/lib.less";
+
+	.x1umy8rd.x1umy8rd, .x1umy8rd.x1umy8rd:root {
+		#draculaTheme(dracula);
+	}
+
+	.xodxds6.xodxds6, .xodxds6.xodxds6:root {
+		#draculaTheme(alucard);
+	}
+
+	#draculaTheme(@themeName) {
+		#draculaLib.setPalette();
+
+		--WDS-accent: @drx-color-accent-2;
+		--WDS-accent-deemphasized: fade(@drx-color-accent-2, 25%);
+		--WDS-background-wash-inset: @drx-color-base;
+		--WDS-background-elevated-wash-inset: @drx-color-surface;
+		--WDS-background-dimmer-RGB: @drx-color-base;
+		--WDS-components-profile-photo-content-cobalt: @drx-color-accent-2;
+		--WDS-components-profile-photo-content-green: @drx-color-accent-2;
+		--WDS-content-action-emphasized: @drx-color-accent-2;
+		--WDS-content-external-link: @drx-color-accent-2;
+		--WDS-content-read: @drx-color-accent-2;
+		--WDS-content-read-RGB: @drx-color-accent-2;
+		--WDS-persistent-activity-indicator: @drx-color-accent-2;
+		--WDS-persistent-always-branded: @drx-color-accent-2;
+		--WDS-persistent-verif1ied: @drx-color-accent-2;
+		--WDS-secondary-positive: @drx-color-accent-2;
+		--WDS-systems-bubble-content-business: @drx-color-accent-2;
+		--WDS-systems-bubble-surface-outgoing: @drx-color-accent-2;
+		--WDS-systems-bubble-surface-outgoing-RGB: @drx-color-overlay;
+		--WDS-systems-bubble-surface-incoming: @drx-color-surface;
+		--WDS-systems-bubble-surface-incoming-RGB: @drx-color-surface;
+		--WDS-systems-chat-surface-composer: @drx-color-surface;
+		--WDS-systems-chat-background-wallpaper: @drx-color-base;
+		--WDS-surface-default: @drx-color-base;
+		--WDS-surface-emphasized: @drx-color-base;
+		--WDS-surface-highlight: @drx-color-overlay;
+		--WDS-neutral-gray-50: @drx-color-text;
+		--WDS-neutral-gray-800: @drx-color-subtext;
+		--WDS-neutral-gray-850: @drx-color-subtext;
+		--WDS-neutral-gray-900: @drx-color-text;
+		--WDS-neutral-gray-1000: @drx-color-base;
+		--WDS-white-alpha-60: @drx-color-subtext;
+		--WDS-white-alpha-10: @drx-color-overlay;
+
+		--splashscreen-progress-primary: @drx-color-accent-2;
+		--app-background-stripe: @drx-color-accent-2;
+		--attachment-type-photos-color: @drx-color-accent-2;
+		--attachment-type-orders-color: @drx-color-accent-2;
+		--attachment-type-contacts-color: @drx-color-accent-2;
+		--audio-progress-played-incoming: @drx-color-accent-2;
+		--audio-progress-played-outgoing: @drx-color-accent-2;
+		--text-success: @drx-color-green-2;
+		--round-icon-background: @drx-color-accent-2;
+		--icon-header-illustration-main: @drx-color-accent-2;
+		--icon-primary: @drx-color-accent-2;
+		--input-border-active: @drx-color-accent-2;
+		--input-button-more: @drx-color-accent-2;
+		--input-empty-value-placeholder: @drx-color-accent-2;
+		--progress-primary: @drx-color-accent-2;
+		--poll-bar-fill-receiver: @drx-color-accent-2;
+		--poll-bar-fill-sender: @drx-color-accent-2;
+		--ptt-thumb-incoming-played: @drx-color-accent-2;
+		--ptt-green: @drx-color-accent-2;
+		--status-ring-unread: @drx-color-accent-2;
+		--switch-track-checked-color: @drx-color-accent-2;
+
+		--background-default: @drx-color-base;
+		--chatlist-panel-background: @drx-color-surface;
+		
+		// Secondary text color
+		.xhslqc4 {
+			color: @drx-color-subtext;
+		}
+
+		// Outgoing message style configuration
+		div.message-out [data-testid="msg-container"] *:not([data-testid="tail-out"]):not([data-testid="tail-out"] *) {
+			color: @drx-color-surface;
+			font-weight: 500;
+		}
+	}
+
+	div#app ._aigs,
+	div#app .app-wrapper-web ._aigs {
+		max-width: 100%;
+		width: 100%;
+		height: 100%;
+		top: 0;
+	}
+}
