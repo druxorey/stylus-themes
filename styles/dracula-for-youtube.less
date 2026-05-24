@@ -1,0 +1,623 @@
+/* ==UserStyle==
+@name             Dracula for YouTube
+@namespace        github.com/druxorey/dracula-for-stylus
+@version          2.0.0
+@description      Are you tired of the same boring colors on YouTube? Then try this modern color style based on the Dracula theme
+@author           Druxorey
+@license          GNU General Public License v3.0
+@preprocessor     less
+
+@var select darkAccent "Dark Accent (Dracula)" {
+	"Red": "drx-color-red",
+	"Orange": "drx-color-orange",
+	"Yellow": "drx-color-yellow",
+	"Green": "drx-color-green",
+	"Cyan": "drx-color-cyan",
+	"Blue": "drx-color-blue",
+	"Purple*": "drx-color-purple",
+	"Pink": "drx-color-pink"
+}
+
+@var select lightAccent "Light Accent (Alucard)" {
+	"Red*": "drx-color-red",
+	"Orange": "drx-color-orange",
+	"Yellow": "drx-color-yellow",
+	"Green": "drx-color-green",
+	"Cyan": "drx-color-cyan",
+	"Blue": "drx-color-blue",
+	"Purple": "drx-color-purple",
+	"Pink": "drx-color-pink"
+}
+
+@var checkbox  noShorts               "No short videos"               1
+@var checkbox  noVoiceSearch          "No voice search"               1
+@var checkbox  noUpload               "No upload button"              0
+@var checkbox  lessCrazyAnimations    "Less crazy button animations"  1
+@var checkbox  noMemberships          "No channel memberships"        1
+@var checkbox  noMemberVideos         "No member-only videos"         1
+@var checkbox  noSubsTopGap           "Subscriptions: reduce top gap" 1
+@var checkbox  noSearchUnrelated      "Search: no unrelated videos"   1
+@var checkbox  noCommentsPaidBg       "Comments: no paid background"  1
+
+@var select    noHome_                "Home:"                 {" ":"_"}
+@var checkbox  noHomeTags             "  No top tags"                 1
+@var checkbox  noHomeDifferent        "  No New to you"               1
+@var checkbox  noHomeLatestPosts      "  No Latest posts"             0
+@var checkbox  noHomeVideoSurveys     "  No video Surveys"            1
+@var checkbox  noHomeJunkSections     "  No other junk sections"      1
+
+@var select    noVideo_               "Video:"                {" ":"_"}
+@var checkbox  noVideoCornerLogo      "  No logo in corner"           1
+@var checkbox  noVideoPlayNext        "  No Next video button"        1
+@var checkbox  noVideoClipButton      "  No Clip button"              1
+@var checkbox  noVideoWatchNext       "  No Watch next column (emptiness) OR new bottom grid" 0
+@var checkbox  noVideoEndscreenVideos "  No endscreen video suggestions" 0
+@var checkbox  noVideoSuggestionsTags "  No tags for Watch next"      1
+@var checkbox  noVideoVignette        "  No bottom vignette"          0
+@var checkbox  noVideoVignetteTop     "  No top vignette (fullscreen)" 0
+@var checkbox  noVideoChannelLinks    "  No channel links (socials) in description" 1
+@var checkbox  noVideoFundraising     "  No fundraising"              1
+
+@var select    noLogo_                "Logo:"                 {" ":"_"}
+@var checkbox  noLogoAccent           "  Monochrome button"           0
+@var checkbox  noLogoCountryCode      "  No country code"             1
+
+@var select    noSidebar_             "Sidebar:"              {" ":"_"}
+@var checkbox  noSidebarNewnessDots   "  No newness dots"             1
+@var checkbox  noSidebarBloat         "  No bloat"                    1
+
+@var checkbox purinLogo "Pompompurin Logo" 0
+
+==/UserStyle== */
+
+@-moz-document domain("youtube.com") {
+	@import "https://raw.githubusercontent.com/druxorey/dracula-for-stylus/refs/heads/main/lib.less";
+
+	:root[dark], html[dark], [darker-dark-theme] {
+		#draculaTheme(dracula);
+	}
+
+	:root:not([dark]), html:not([dark]) {
+		#draculaTheme(alucard);
+	}
+
+	#draculaTheme(@themeName) {
+		@accentColor: if((@themeName = dracula), @darkAccent, @lightAccent);
+		
+		#draculaLib.setPalette();
+
+		[dark],	[system-icons], [darker-dark-theme] {
+			--yt-spec-base-background: @drx-color-surface !important;
+			--yt-spec-raised-background: @drx-color-base !important;
+			--yt-spec-menu-background: @drx-color-base !important;
+			--yt-spec-inverted-background: @drx-color-text !important;
+			--yt-spec-additive-background: @drx-color-overlay !important;
+			--yt-spec-outline: @drx-color-overlay !important;
+			
+			--yt-spec-text-primary: @drx-color-text !important;
+			--yt-spec-text-secondary: @drx-color-subtext !important;
+			--yt-spec-text-disabled: @drx-color-deactivate !important;
+
+			--yt-sys-color-baseline--base-background: @drx-color-surface !important;
+			--yt-sys-color-baseline--raised-background: @drx-color-base !important;
+			--yt-sys-color-baseline--menu-background: @drx-color-base !important;
+			
+			--yt-sys-color-baseline--text-primary: @drx-color-text !important;
+			--yt-sys-color-baseline--text-secondary: @drx-color-subtext !important;
+			--yt-sys-color-baseline--text-disabled: @drx-color-deactivate !important;
+			--yt-sys-color-baseline--text-primary-inverse: @drx-color-surface !important;
+		}
+		
+		.ytp-swatch-background-color, .ytp-play-progress {
+			background: var(--color-accent-2) !important;
+		}
+		
+		#frosted-glass.with-chipbar.ytd-app {
+			background: transparent;
+		}
+
+		&, body, ytd-app, #content, ytd-page-manager, ytd-watch-flexy, ytd-browse, .button-container.ytd-rich-shelf-renderer {
+			background-color: @drx-color-surface !important;
+			background: @drx-color-surface !important;
+			color: @drx-color-text !important;
+		}
+		
+		/* Navigation, sidebars, and headers */
+		#masthead-container, #masthead, app-drawer#guide, #guide-wrapper, #guide-content.ytd-app, #guide-content, #page-header-container.ytd-tabbed-page-header, #tabs-container.ytd-tabbed-page-header, #page-header.ytd-tabbed-page-header, #tabs-inner-container.ytd-tabbed-page-header {
+			background-color: @drx-color-base !important;
+			background: @drx-color-base !important;
+		}
+
+		#video-title, #video-title-link, .ytd-channel-name .yt-formatted-string, .ytd-video-meta-block, .ytLockupMetadataViewModelTitle, .ytLockupMetadataViewModelTitle span, .yt-core-attributed-string--link-inherit-color, .shortsLockupViewModelHostOutsideMetadataEndpoint, .shortsLockupViewModelHostOutsideMetadataEndpoint span, ytd-guide-entry-renderer .title, ytd-mini-guide-entry-renderer .title, .title.ytd-guide-entry-renderer {
+			color: @drx-color-text !important;
+		}
+
+		#metadata-line span, #byline-container .yt-formatted-string, .ytLockupMetadataViewModelHost .yt-core-attributed-string[color="text-secondary"], .ytLockupMetadataViewModelHost span {
+			color: @drx-color-subtext !important;
+		}
+
+		.ytLockupMetadataViewModelTitle span, .shortsLockupViewModelHostOutsideMetadataEndpoint span {
+			color: @drx-color-text !important;
+		}
+
+		/* Category pills and chips */
+		yt-chip-cloud-chip-renderer, yt-chip-cloud-chip-renderer .yt-core-attributed-string, .ytChipShape {
+			background-color: @drx-color-surface !important;
+			color: @drx-color-text !important;
+			border-color: @drx-color-overlay !important;
+		}
+
+		yt-chip-cloud-chip-renderer[selected], yt-chip-cloud-chip-renderer[selected] .yt-core-attributed-string, .ytChipShapeActive {
+			background-color: @drx-color-highlight !important;
+			color: @drx-color-text !important;
+		}
+
+		ytd-feed-nudge-renderer[nudge-style=modernized-nudge] #content-wrapper.ytd-feed-nudge-renderer, ytd-feed-nudge-renderer {
+			background-color: @drx-color-surface !important;
+		}
+
+		/* Shorts and Reels interface */
+		ytd-shorts, #shorts-container, #shorts-inner-container, ytd-reel-video-renderer, ytd-reel-video-renderer[is-active], ytd-engagement-panel-section-list-renderer, #engagement-panel-scrim {
+			background-color: @drx-color-surface !important;
+			background: @drx-color-surface !important;
+		}
+
+		/* Cinematic mode and player containers */
+		#player-container-outer, #player-container-inner, #player-full-bleed-container, #full-bleed-container, #player-container, ytd-watch-flexy[flexy] #player-container-outer, ytd-watch-flexy[flexy] #player-container-inner, .ytd-watch-flexy, #columns {
+			background-color: transparent !important;
+			background: transparent !important;
+		}
+
+		#cinematics, #cinematics-container {
+			display: none !important;
+			opacity: 0 !important;
+		}
+
+		/* Search bar and autocomplete suggestions */
+		yt-searchbox, .ytSearchboxComponentInputContainer, .ytSearchboxComponentSearchForm {
+			background-color: transparent !important;
+		}
+
+		.ytSearchboxComponentInputBox, .ytSearchboxComponentInputBoxDark {
+			background-color: @drx-color-base !important;
+			border-color: @drx-color-overlay !important;
+			box-shadow: none !important; 
+		}
+
+		input.ytSearchboxComponentInput, input.yt-searchbox-input {
+			background-color: transparent !important;
+			color: @drx-color-text !important; 
+			box-shadow: none !important;
+		}
+
+		.ytSearchboxComponentSearchButton, .ytSearchboxComponentSearchButtonDark {
+			background-color: @drx-color-surface !important;
+			border-color: @drx-color-overlay !important;
+			color: @drx-color-text !important;
+		}
+
+		.ytSearchboxComponentSearchButton:hover, .ytSearchboxComponentSearchButtonDark:hover, .ytSuggestionComponentSuggestion:hover {
+			background-color: @drx-color-overlay !important;
+		}
+
+		.ytSearchboxComponentSearchButton .ytIconWrapperHost, .ytSearchboxComponentSearchButtonDark .ytIconWrapperHost, .ytSuggestionComponentIcon .ytIconWrapperHost, .ytSuggestionComponentText, .ytSuggestionComponentText span {
+			color: @drx-color-text !important;
+			fill: @drx-color-text !important;
+		}
+
+		.ytSearchboxComponentSuggestionsContainer, .ytSearchboxComponentSuggestionsContainerDark {
+			background-color: @drx-color-surface !important;
+			border-color: @drx-color-overlay !important;
+		}
+
+		.ytSuggestionComponentSuggestion, .ytSearchboxComponentReportButton {
+			background-color: transparent !important;
+		}
+
+		.ytSuggestionComponentBold {
+			color: @drx-color-accent-2 !important;
+		}
+
+		.ytSearchboxComponentReportButton {
+			color: @drx-color-subtext !important;
+		}
+
+		.ytSearchboxComponentReportButton:hover {
+			background-color: @drx-color-overlay !important;
+		}
+
+		#search-input, #search-icon-legacy {
+			background-color: @drx-color-surface !important;
+			border-color: @drx-color-overlay !important;
+			color: @drx-color-text !important;
+		}
+
+		/* Modern buttons and standard interactive components */
+		.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal, .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline, .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text, .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextTonal, .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextOutline, .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextText {
+			color: @drx-color-text !important;
+		}
+
+		.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal, .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextTonal {
+			background-color: @drx-color-overlay !important;
+		}
+
+		.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover, .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextTonal:hover {
+			background-color: @drx-color-overlay !important;
+		}
+
+		.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled, .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled {
+			background-color: @drx-color-highlight !important;
+			color: @drx-color-text !important;
+		}
+
+		.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled:hover, .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled:hover {
+			background-color: @drx-color-overlay !important;
+		}
+
+		/* Interactive playback controls and subscribe button */
+		.ytp-swatch-background-color, .ytp-play-progress, ytd-subscribe-button-renderer tp-yt-paper-button, tp-yt-paper-button.ytd-subscribe-button-renderer {
+			background-color: @drx-color-accent-2 !important;
+		}
+
+		.ytp-swatch-color {
+			color: @drx-color-accent-2 !important;
+		}
+
+		ytd-subscribe-button-renderer tp-yt-paper-button, tp-yt-paper-button.ytd-subscribe-button-renderer {
+			color: @drx-color-base !important;
+		}
+
+		.html5-video-player:not(.ytp-transparent), .html5-video-player.unstarted-mode, .html5-video-player.ad-showing, .html5-video-player.ended-mode {
+			background-color: #000000 !important;
+		}
+
+		/* Content loading skeletons */
+		#grid-container-skeleton, #watch-page-skeleton {
+			background-color: @drx-color-surface !important;
+		}
+
+		.watch-skeleton .skeleton-bg-color, #grid-container-skeleton .skeleton-bg-color {
+			background-color: @drx-color-base !important;
+		}
+
+		/* Branding and logo customization */
+		& when (@purinLogo = 0) {
+			ytd-topbar-logo-renderer svg path[fill="#FF0033"], ytd-topbar-logo-renderer svg path[fill="#FF0000"] {
+				fill: @drx-color-accent-2 !important;
+			}
+
+			ytd-topbar-logo-renderer svg path[fill="white"], ytd-topbar-logo-renderer svg path[fill="#FFFFFF"], ytd-topbar-logo-renderer svg g#youtube-paths_yt10 path, ytd-topbar-logo-renderer svg g#youtube-paths path, ytd-topbar-logo-renderer svg path:not([fill]) {
+				fill: @drx-color-text !important;
+			}
+		}
+
+		#country-code.ytd-topbar-logo-renderer {
+			color: @drx-color-deactivate !important;
+		}
+
+		/* Menus, notifications, and dialog boxes */
+		.ytContextualSheetLayoutHost, .ytContextualSheetLayoutContentContainer, ytd-menu-popup-renderer, tp-yt-paper-listbox, ytd-multi-page-menu-renderer, ytd-simple-menu-header-renderer {
+			background-color: @drx-color-base !important;
+			background: @drx-color-base !important;
+		}
+
+		.ytContextualSheetLayoutContentContainer, ytd-menu-popup-renderer, tp-yt-paper-listbox, ytd-multi-page-menu-renderer {
+			border: 1px solid @drx-color-overlay !important;
+			border-radius: 12px !important;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+		}
+
+		ytd-simple-menu-header-renderer {
+			color: @drx-color-text !important;
+			border-bottom: 1px solid @drx-color-overlay !important;
+		}
+
+		ytd-simple-menu-header-renderer h2, ytd-simple-menu-header-renderer yt-formatted-string, yt-multi-page-menu-section-renderer #section-title h2, yt-multi-page-menu-section-renderer #section-title yt-formatted-string {
+			color: @drx-color-text !important;
+		}
+
+		.ytListItemViewModelHost, .ytListItemViewModelContainer, .ytRadioShapeTappable, ytd-menu-service-item-renderer, ytd-menu-navigation-item-renderer, ytd-notification-renderer {
+			background-color: transparent !important;
+		}
+
+		.ytListItemViewModelHost:hover, .ytListItemViewModelContainer:hover, .ytRadioShapeTappable:hover, ytd-menu-service-item-renderer:hover, ytd-menu-navigation-item-renderer:hover, ytd-notification-renderer:hover {
+			background-color: @drx-color-overlay !important;
+		}
+
+		.ytListItemViewModelTitle, .ytListItemViewModelTextWrapper, .ytIconWrapperHost, ytd-notification-renderer .message, ytd-notification-renderer .message span, ytd-notification-renderer .message yt-formatted-string {
+			color: @drx-color-text !important;
+			fill: @drx-color-text !important;
+		}
+
+		ytd-notification-renderer .metadata, ytd-notification-renderer .metadata span, ytd-notification-renderer .metadata yt-formatted-string {
+			color: @drx-color-subtext !important;
+		}
+
+		yt-list-item-view-model[aria-checked="true"] .ytListItemViewModelTitle, .ytRadioShapeCheckIcon .ytIconWrapperHost {
+			color: @drx-color-accent-2 !important;
+			fill: @drx-color-accent-2 !important;
+			font-weight: bold !important;
+		}
+
+		ytd-notification-renderer.unread #new {
+			background-color: @drx-color-accent-2 !important;
+		}
+
+		/* Live chat and premiere-specific styling */
+		yt-live-chat-app, yt-live-chat-renderer {
+			background-color: @drx-color-surface !important;
+			color: @drx-color-text !important;
+		}
+
+		yt-live-chat-header-renderer, yt-live-chat-message-input-renderer {
+			background-color: @drx-color-base !important;
+		}
+
+		yt-live-chat-text-message-renderer #content, yt-live-chat-membership-item-renderer #content, yt-live-chat-paid-message-renderer #content, yt-live-chat-viewer-engagement-message-renderer #content {
+			background-color: transparent !important;
+		}
+
+		yt-live-chat-text-message-renderer:hover, yt-live-chat-membership-item-renderer:hover, yt-live-chat-viewer-engagement-message-renderer:hover {
+			background-color: @drx-color-overlay !important;
+		}
+
+		#card.yt-live-chat-paid-message-renderer, #header.yt-live-chat-paid-message-renderer {
+			background-color: @drx-color-overlay !important;
+			color: @drx-color-text !important;
+		}
+
+		#menu.yt-live-chat-paid-message-renderer {
+			background: linear-gradient(to right, transparent, @drx-color-overlay 100%) !important;
+		}
+
+		yt-live-chat-author-chip[disable-highlighting] #author-name.yt-live-chat-author-chip {
+			color: @drx-color-subtext !important;
+		}
+
+		/* Global scrollbar customization */
+		&, body {
+			scrollbar-color: @drx-color-highlight transparent !important;
+		}
+
+		body::-webkit-scrollbar {
+			background-color: @drx-color-surface !important;
+		}
+
+		body::-webkit-scrollbar-thumb {
+			background-color: @drx-color-highlight !important;
+			border: 3px solid @drx-color-surface !important;
+		}
+
+		body::-webkit-scrollbar-thumb:hover {
+			background-color: @drx-color-overlay !important;
+		}
+	}
+
+	& when (@noShorts = 1) {
+		ytd-rich-shelf-renderer[is-shorts],
+		ytd-reel-shelf-renderer,
+		grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2),
+		ytd-video-renderer:has(a#video-title[href^="/shorts/"]),
+		#description ytd-reel-shelf-renderer.ytd-structured-description-content-renderer:has(#dismissible) {
+			display: none !important;
+		}
+	}
+
+	& when (@noVoiceSearch = 1) {
+		#voice-search-button.ytd-masthead {
+			display: none !important;
+		}
+	}
+
+	& when (@noUpload = 1) {
+		#masthead #end #buttons button:has(path[d$="1h8V3h1v8h8v1z"]) {
+			display: none !important;
+		}
+	}
+
+	& when (@lessCrazyAnimations = 1) {
+		ytd-segmented-like-dislike-button-renderer,
+		segmented-like-dislike-button-view-model {
+			.smartimation__border-gradient { display: none; }
+			.smartimation--active-border .smartimation__background { opacity: 0; }
+			ytd-lottie-player { filter: saturate(0); }
+		}
+		#subscribe-button {
+			.animated-action__background-container,
+			.animated-action__lottie,
+			.smartimation__border {
+				display: none;
+			}
+		}
+	}
+
+	& when (@noMemberships = 1) {
+		ytd-item-section-renderer ytd-recognition-shelf-renderer,
+		ytd-popup-container yt-mealbar-promo-renderer {
+			display: none !important;
+		}
+	}
+
+	& when (@noMemberVideos = 1) {
+		ytd-rich-grid-renderer #contents ytd-rich-item-renderer:has(.badge-style-type-members-only),
+		ytd-rich-item-renderer:has(.yt-content-metadata-view-model__badge .yt-badge-shape--commerce) {
+			display: none !important;
+		}
+	}
+
+	& when (@noHomeTags = 1) {
+		ytd-feed-filter-chip-bar-renderer,
+		ytd-app #frosted-glass.with-chipbar {
+			display: none !important;
+		}
+		ytd-rich-grid-renderer #contents.ytd-rich-grid-renderer {
+			padding-top: 16px !important;
+		}
+	}
+
+	& when (@noHomeDifferent = 1) {
+		.ytd-feed-nudge-renderer,
+		yt-chip-cloud-chip-renderer[chip-style="STYLE_REFRESH_TO_NOVEL_CHIP"] {
+			display: none !important;
+		}
+	}
+
+	& when (@noHomeLatestPosts = 1) {
+		#dismissible.ytd-rich-shelf-renderer,
+		.ytd-rich-section-renderer:has(ytd-post-renderer) {
+			display: none !important;
+		}
+	}
+
+	& when (@noHomeVideoSurveys = 1) {
+		#dismissible .ytd-inline-survey-renderer,
+		ytd-popup-container ytd-checkbox-survey-renderer {
+			display: none !important;
+		}
+	}
+
+	& when (@noHomeJunkSections = 1) {
+		.ytd-rich-shelf-renderer:has(a[href="/playables"]),
+		.ytd-rich-shelf-renderer:has(a[href="/feed/storefront"]),
+		.ytd-rich-section-renderer:has(a.yt-spec-button-shape-next[href^="/premium/music?ybp="]) {
+			display: none !important;
+		}
+	}
+
+	& when (@noVideoCornerLogo = 1) {
+		.iv-branding {
+			display: none !important;
+		}
+	}
+
+	& when (@noVideoPlayNext = 1) {
+		#ytd-player .ytp-next-button {
+			display: none !important;
+		}
+	}
+
+	& when (@noVideoClipButton = 1) {
+		yt-button-view-model:has(path[d*="1-1 1 .45 1 1zm-1 9c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm3.79-7.77L21"]) {
+			display: none !important;
+		}
+	}
+
+	& when (@noVideoWatchNext = 1) {
+		ytd-watch-next-secondary-results-renderer,
+		ytd-watch-grid.ytd-page-manager #bottom-grid {
+			display: none !important;
+		}
+	}
+
+	& when (@noVideoEndscreenVideos = 1) {
+		#movie_player .ytp-ce-channel,
+		#movie_player .ytp-ce-video,
+		.ytp-endscreen-content {
+			display: none !important;
+		}
+	}
+
+	& when (@noVideoSuggestionsTags = 1) {
+		ytd-watch-next-secondary-results-renderer yt-related-chip-cloud-renderer {
+			display: none !important;
+		}
+		ytd-watch-flexy[default-layout] ytd-watch-next-secondary-results-renderer ytd-compact-video-renderer:first-child {
+			margin-top: 0 !important;
+		}
+	}
+
+	& when (@noVideoVignette = 1) {
+		.ytp-gradient-bottom {
+			display: none !important;
+		}
+	}
+
+	& when (@noVideoVignetteTop = 1) {
+		.ytp-gradient-top {
+			display: none !important;
+		}
+	}
+
+	& when (@noVideoChannelLinks = 1) {
+		ytd-video-description-infocards-section-renderer yt-button-view-model:has(a[href^="https://"]) {
+			display: none !important;
+		}
+	}
+
+	& when (@noVideoFundraising = 1) {
+		#donation-shelf,
+		ytd-badge-supported-renderer.ytd-watch-metadata {
+			display: none !important;
+		}
+	}
+
+	& when (@noSidebarNewnessDots = 1) {
+		#newness-dot {
+			display: none !important;
+		}
+	}
+
+	& when (@noSidebarBloat = 1) {
+		.tp-yt-app-drawer {
+			a#endpoint[title="Shorts"],
+			a[href^="/feed/clips"][title],
+			a[href^="/feed/trending"][title],
+			a[href^="/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"][title],
+			a[href^="/feed/storefront"][title],
+			a[href^="/channel/UC4R8DWoMoI7CAwX8_LjQHig"][title],
+			a[href^="/gaming"][title],
+			a[href^="/channel/UCEgdi0XIXXZ-qJOFPf4JSKw"][title],
+			a[href^="https://studio.youtube.com"][title="Creator Studio"],
+			a[href^="https://studio.youtube.com"][title="YouTube Studio"],
+			a[href^="https://music.youtube.com"][title="YouTube Music"],
+			a[href^="https://www.youtubekids.com"][title="YouTube Kids"],
+			a[href^="https://tv.youtube.com"][title="YouTube TV"],
+			a#endpoint[title="Send feedback"],
+			#guide-links-secondary.ytd-guide-renderer > a[href="/new"],
+			#footer.ytd-guide-renderer #copyright {
+				display: none !important;
+			}
+		}
+		#sections {
+			ytd-guide-section-renderer:nth-last-child(2),
+			ytd-guide-section-renderer:nth-last-child(3) {
+				display: none !important;
+			}
+		}
+	}
+
+	& when (@noSubsTopGap = 1) {
+		ytd-browse[page-subtype="subscriptions"] .grid-subheader.ytd-shelf-renderer {
+			margin-top: 0 !important;
+		}
+	}
+
+	& when (@noSearchUnrelated = 1) {
+		.ytd-search ytd-shelf-renderer {
+			display: none !important;
+		}
+	}
+
+	& when (@noCommentsPaidBg = 1) {
+		#paid-comment-background {
+			display: none !important;
+		}
+	}
+		
+	& when (@purinLogo = 1) {
+		#logo-icon,
+		ytd-topbar-logo-renderer #logo-icon {
+			content: url("https://media0.giphy.com/media/ekdHjOKEjNBoG72nGV/200w.gif?cid=82a1493b1kf08a1lwt8hje2xiiw8ay7blgbxi99boralms3m&rid=200w.gif&ct=s") !important;
+			width: 80px !important;
+			height:35px !important;
+			object-fit: cover !important;
+		}
+		ytd-topbar-logo-renderer {
+			width: auto !important;
+		}
+		#logo svg,
+		ytd-topbar-logo-renderer svg {
+			display: none !important;
+		}
+	}
+}
