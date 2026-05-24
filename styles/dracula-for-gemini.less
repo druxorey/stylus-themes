@@ -1,21 +1,32 @@
 /* ==UserStyle==
 @name             Dracula for Gemini
 @namespace        github.com/druxorey/dracula-for-stylus
-@version          2.0.1
+@version          2.0.2
 @description      Are you tired of the same boring colors on Gemini? Then try this modern color style based on the Dracula theme
 @author           Druxorey
 @license          GNU General Public License v3.0
 @preprocessor     less
 
-@var select accentColor "Accent Color" {
-	"Red":    "drx-color-red",
+@var select darkAccent "Dark Accent (Dracula)" {
+	"Red": "drx-color-red",
 	"Orange": "drx-color-orange",
 	"Yellow": "drx-color-yellow",
-	"Green":  "drx-color-green",
-	"Cyan":   "drx-color-cyan",
-	"Blue":   "drx-color-blue",
+	"Green": "drx-color-green",
+	"Cyan": "drx-color-cyan",
+	"Blue": "drx-color-blue",
+	"Purple*": "drx-color-purple",
+	"Pink": "drx-color-pink"
+}
+
+@var select lightAccent "Light Accent (Alucard)" {
+	"Red*": "drx-color-red",
+	"Orange": "drx-color-orange",
+	"Yellow": "drx-color-yellow",
+	"Green": "drx-color-green",
+	"Cyan": "drx-color-cyan",
+	"Blue": "drx-color-blue",
 	"Purple": "drx-color-purple",
-	"Pink":   "drx-color-pink"
+	"Pink": "drx-color-pink"
 }
 
 @var checkbox hideUpsell "Disable Gemini Advance Upsell" 0
@@ -34,7 +45,9 @@
 	}
 	
 	#draculaTheme(@themeName) {
-		#draculaLib.setPalette();
+		@accentColor: if((@themeName = dracula), @darkAccent, @lightAccent);
+        
+        #draculaLib.setPalette();
 		
 		--lumi-sys-color--surface: @drx-color-surface;
 		--lumi-sys-color--surface-bright: @drx-color-base;
